@@ -11,6 +11,15 @@ package josuezelaya_lab7;
  */
 public class Minotauro extends Bestia{
 
+    public Minotauro() {
+        super();
+    }
+
+    public Minotauro(String nombre, String nickname, double poder_ataque, double poder_defensa, double salud, double puntos) {
+        super(nombre, nickname, poder_ataque, poder_defensa, salud, puntos);
+    }
+
+    
     @Override
     public void Ataque(Guerreros guerrero) {
        double vida1,vida2, porciento,suma,ataque1,ataque2;
