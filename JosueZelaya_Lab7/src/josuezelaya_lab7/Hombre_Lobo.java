@@ -9,6 +9,14 @@ package josuezelaya_lab7;
  *
  * @author usuario
  */
-public class Hombre_Lobo {
+public class Hombre_Lobo extends Bestia{
+
+    @Override
+    public void Ataque(Guerreros guerrero) {
+       double vida_rival1,vida_rival2;
+       vida_rival1=this.getPoder_ataque()-guerrero.getPoder_defensa();
+       vida_rival2=guerrero.getSalud()-vida_rival1;
+       guerrero.setSalud(vida_rival2);
+    }
     
 }
