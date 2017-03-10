@@ -10,5 +10,5 @@ package josuezelaya_lab7;
  * @author usuario
  */
 public abstract class Bestia extends Guerreros{
-    public abstract void AtaqueDragon(Guerreros guerrero);
+    public abstract void Ataque(Guerreros guerrero);
 }
