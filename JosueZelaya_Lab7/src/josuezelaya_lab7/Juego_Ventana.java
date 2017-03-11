@@ -7,6 +7,7 @@ package josuezelaya_lab7;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -59,8 +60,16 @@ public class Juego_Ventana extends javax.swing.JFrame {
         boton_guardar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tabla = new javax.swing.JTable();
+        cb_listar = new javax.swing.JComboBox<>();
+        mostrar_boton = new javax.swing.JButton();
+        boton_modificar = new javax.swing.JButton();
+        tf_fila = new javax.swing.JTextField();
+        tf_columna = new javax.swing.JTextField();
+        tf_nuevovalor = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,7 +106,7 @@ public class Juego_Ventana extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(30, 30, 30)
                 .addComponent(cb_tipo_bestia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +141,7 @@ public class Juego_Ventana extends javax.swing.JFrame {
                     .addComponent(tf_numcuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
                     .addComponent(tf_carrera)
                     .addComponent(tf_edad))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,14 +243,14 @@ public class Juego_Ventana extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(sp_salud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                         .addComponent(boton_guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20))))
         );
 
         tab_principal.addTab("Agregar", jPanel1);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -249,32 +258,90 @@ public class Juego_Ventana extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_listar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dragon", "Fenix", "Hombre Lobo", "Minotauro", "Alumno" }));
+
+        mostrar_boton.setText("Mostrar");
+        mostrar_boton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostrar_botonMouseClicked(evt);
+            }
+        });
+
+        boton_modificar.setText("Modificar");
+        boton_modificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_modificarMouseClicked(evt);
+            }
+        });
+
+        jLabel11.setText("Fila");
+
+        jLabel12.setText("Columna");
+
+        jLabel13.setText("Nuevo Vallor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(cb_listar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(108, 108, 108)
+                .addComponent(mostrar_boton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(boton_modificar)
+                        .addGap(52, 52, 52))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_columna, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tf_fila, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                                .addComponent(tf_nuevovalor, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_listar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mostrar_boton))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_fila, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_columna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_nuevovalor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(boton_modificar)
+                .addGap(174, 174, 174))
         );
 
         tab_principal.addTab("Listar", jPanel2);
@@ -283,11 +350,11 @@ public class Juego_Ventana extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 698, Short.MAX_VALUE)
+            .addGap(0, 770, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGap(0, 488, Short.MAX_VALUE)
         );
 
         tab_principal.addTab("Simulacion", jPanel3);
@@ -320,6 +387,18 @@ public class Juego_Ventana extends javax.swing.JFrame {
         double poder_ataque = Double.parseDouble(sp_ataque.getValue().toString());
         double poder_defensa = Double.parseDouble(sp_defensa.getValue().toString());
         double salud = Double.parseDouble(sp_salud.getValue().toString());
+        if  (salud <800){
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor a 800 la salud");
+            sp_salud.setValue(800);
+        }
+       if  (poder_ataque<200 || poder_ataque>300){
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor a 200  el poder de ataque o menor que 300");
+            sp_ataque.setValue(200);
+        }
+       if  (poder_defensa<25 || poder_defensa>75){
+            JOptionPane.showMessageDialog(this, "Tiene que ser mayor a 25  el poder de dfensa o menor que 75");
+            sp_defensa.setValue(25);
+        }
         if (tab_tipo_guerreo.getSelectedIndex() == 0) {
             if (cb_tipo_bestia.getSelectedItem().toString().equals("Dragon")) {
                 guerrero.add(new Dragon(nombre, nickname, poder_ataque, poder_defensa, salud, 0));
@@ -375,6 +454,116 @@ public class Juego_Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_guardarMouseClicked
 
+    private void mostrar_botonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrar_botonMouseClicked
+        // TODO add your handling code here:
+        if (cb_listar.getSelectedItem().toString().equals("Dragon")){
+            DefaultTableModel modelo
+                        = new DefaultTableModel();
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Nickname");
+                modelo.addColumn("Poder de Ataque");
+                modelo.addColumn("Poder de Defensa");
+                modelo.addColumn("salud");
+                modelo.addColumn("Puntos");
+                for (int i = 0; i < guerrero.size(); i++) {
+                Dragon d=(Dragon)guerrero.get(i);
+                if (d instanceof Dragon){
+                    Object [] newrow={
+                        d.getNombre(), d.getNickname(), d.getPoder_ataque(), d.getPoder_defensa(), d.getSalud(), d.getPuntos()
+                    };
+                    modelo.addRow(newrow);
+                }
+            };
+            tabla.setModel(modelo);
+        }
+        if (cb_listar.getSelectedItem().toString().equals("Fenix")){
+             DefaultTableModel modelo
+                        = new DefaultTableModel();
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Nickname");
+                modelo.addColumn("Poder de Ataque");
+                modelo.addColumn("Poder de Defensa");
+                modelo.addColumn("salud");
+                modelo.addColumn("Puntos");
+                for (int i = 0; i < guerrero.size(); i++) {
+                Fenix d=(Fenix)guerrero.get(i);
+                if (d instanceof Fenix){
+                    Object [] newrow={
+                        d.getNombre(), d.getNickname(), d.getPoder_ataque(), d.getPoder_defensa(), d.getSalud(), d.getPuntos()
+                    };
+                    modelo.addRow(newrow);
+                }
+            };
+            tabla.setModel(modelo);
+        }
+        if (cb_listar.getSelectedItem().toString().equals("Hombre Lobo")){
+             DefaultTableModel modelo
+                        = new DefaultTableModel();
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Nickname");
+                modelo.addColumn("Poder de Ataque");
+                modelo.addColumn("Poder de Defensa");
+                modelo.addColumn("salud");
+                modelo.addColumn("Puntos");
+                for (int i = 0; i < guerrero.size(); i++) {
+                Hombre_Lobo d=(Hombre_Lobo)guerrero.get(i);
+                if (d instanceof Hombre_Lobo){
+                    Object [] newrow={
+                        d.getNombre(), d.getNickname(), d.getPoder_ataque(), d.getPoder_defensa(), d.getSalud(), d.getPuntos()
+                    };
+                    modelo.addRow(newrow);
+                }
+            };
+            tabla.setModel(modelo);
+        }
+        if (cb_listar.getSelectedItem().toString().equals("Minotauro")){
+             DefaultTableModel modelo
+                        = new DefaultTableModel();
+                modelo.addColumn("Nombre");
+                modelo.addColumn("Nickname");
+                modelo.addColumn("Poder de Ataque");
+                modelo.addColumn("Poder de Defensa");
+                modelo.addColumn("salud");
+                modelo.addColumn("Puntos");
+                for (int i = 0; i < guerrero.size(); i++) {
+               Minotauro d=(Minotauro)guerrero.get(i);
+                if (d instanceof Minotauro){
+                    Object [] newrow={
+                        d.getNombre(), d.getNickname(), d.getPoder_ataque(), d.getPoder_defensa(), d.getSalud(), d.getPuntos()
+                    };
+                    modelo.addRow(newrow);
+                }
+            };
+            tabla.setModel(modelo);
+        }
+        if (cb_listar.getSelectedItem().toString().equals("Alumno")){
+             DefaultTableModel modelo
+                        = new DefaultTableModel();
+                modelo.addColumn("Nombre");
+                modelo.addColumn("N° Cuenta");
+                modelo.addColumn("Carrera");
+                modelo.addColumn("Edad");
+                
+                for (int i = 0; i < guerrero.size(); i++) {
+                Alumnos d=(Alumnos)guerrero.get(i);
+                if (d instanceof Alumnos){
+                    Object [] newrow={
+                        d.getNombre(), d.getNum_cuenta(), d.getCarrera(), d.getEdad()
+                    };
+                    modelo.addRow(newrow);
+                }
+            };
+            tabla.setModel(modelo);
+        }
+    }//GEN-LAST:event_mostrar_botonMouseClicked
+
+    private void boton_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_modificarMouseClicked
+        // TODO add your handling code here:
+        int fila=Integer.parseInt(tf_fila.getText());
+        int columna=Integer.parseInt(tf_columna.getText());
+        tabla.setValueAt(tf_nuevovalor.getText(), fila, columna);
+    }//GEN-LAST:event_boton_modificarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -412,10 +601,14 @@ public class Juego_Ventana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton_guardar;
+    private javax.swing.JButton boton_modificar;
+    private javax.swing.JComboBox<String> cb_listar;
     private javax.swing.JComboBox<String> cb_tipo_bestia;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -430,16 +623,20 @@ public class Juego_Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton mostrar_boton;
     private javax.swing.JSpinner sp_ataque;
     private javax.swing.JSpinner sp_defensa;
     private javax.swing.JSpinner sp_salud;
     private javax.swing.JTabbedPane tab_principal;
     private javax.swing.JTabbedPane tab_tipo_guerreo;
+    private javax.swing.JTable tabla;
     private javax.swing.JTextField tf_carrera;
+    private javax.swing.JTextField tf_columna;
     private javax.swing.JTextField tf_edad;
+    private javax.swing.JTextField tf_fila;
     private javax.swing.JTextField tf_nickname;
     private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_nuevovalor;
     private javax.swing.JTextField tf_numcuenta;
     // End of variables declaration//GEN-END:variables
 ArrayList guerrero = new ArrayList();
